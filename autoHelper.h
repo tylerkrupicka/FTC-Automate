@@ -29,18 +29,17 @@ void AutoDrive(float inches, float speed){
 			motor[FR] = -speed;
 			motor[MR] = -speed;
 			motor[BR] = -speed;
-			{
-				if(nMotorEncoder[ML] < goal){
-					motor[FL] = speed;
-					motor[ML] = speed;
-					motor[BL] = speed;
-					motor[FR] = speed;
-					motor[MR] = speed;
-					motor[BR] = speed;
-				}
-
-			}
-
 		}
+		if(nMotorEncoder[ML] < goal){
+			motor[FL] = speed;
+			motor[ML] = speed;
+			motor[BL] = speed;
+			motor[FR] = speed;
+			motor[MR] = speed;
+			motor[BR] = speed;
+		}
+
+
+
 	}
 }
