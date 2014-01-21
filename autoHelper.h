@@ -14,3 +14,10 @@ task watchdog() {
 	wait10Msec(delay);
 	StopAllTasks();
 }
+
+void AutoDrive(int inches, int speed){
+
+
+
+
+}
