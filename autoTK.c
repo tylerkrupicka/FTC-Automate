@@ -17,6 +17,7 @@
 
 //Local Variables////////////////////////////////////////////
 
+int delay;
 int IR;
 string autoRoutines[] =  { "R1", "R2", "R3", "R4", "R5", "R6"};
 int   selectedAutoRoutine = -1;
@@ -27,6 +28,7 @@ int   selectedDelayTime = -1;
 
 #include "JoystickDriver.c"
 #include "drive.h"
+#include "autoHelper.h"
 #include "menu.h"
 #include "autoRoutines.h"
 
@@ -62,7 +64,6 @@ task main()
   nxtDisplayCenteredBigTextLine(1,"RUNNING!");
   nxtDisplayTextLine(4,"Autonomous Mode");
   nxtDisplayTextLine(5,"Choice: %s", autoRoutines[selectedAutoRoutine]);
-  StartTask(Gyro);
 
   //START AN AUTO ROUTINE!!!!
   switch (selectedAutoRoutine + 1) {  //array index starts at 0, normalize to 1 for clarity
