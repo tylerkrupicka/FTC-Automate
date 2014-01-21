@@ -35,11 +35,11 @@ int   selectedDelayTime = -1;
 //Initialize/////////////////////////////////////////////////
 
 void initializeRobot() {
-  disableDiagnosticsDisplay();
-  //Choose an auto routine.
-  selectedAutoRoutine = getRouteChoice();
-  eraseDisplay();
-  selectedDelayTime = getDelayChoice();
+	disableDiagnosticsDisplay();
+	//Choose an auto routine.
+	selectedAutoRoutine = getRouteChoice();
+	eraseDisplay();
+	selectedDelayTime = getDelayChoice();
 	nMotorEncoder[ML] = 0;
 }
 
@@ -47,46 +47,46 @@ void initializeRobot() {
 
 task main()
 {
-  initializeRobot();
+	initializeRobot();
 
-  eraseDisplay();
-  nxtDisplayCenteredBigTextLine(2,"WAITING...");
-  nxtDisplayTextLine(4,"Autonomous Mode");
-  nxtDisplayTextLine(5,"Choice: %s", autoRoutines[selectedAutoRoutine]);
-  nxtDisplayTextLine(6,"Delay: %i", atoi(delayTimes[selectedDelayTime]));
+	eraseDisplay();
+	nxtDisplayCenteredBigTextLine(2,"WAITING...");
+	nxtDisplayTextLine(4,"Autonomous Mode");
+	nxtDisplayTextLine(5,"Choice: %s", autoRoutines[selectedAutoRoutine]);
+	nxtDisplayTextLine(6,"Delay: %i", atoi(delayTimes[selectedDelayTime]));
 
-  waitForStart();
+	waitForStart();
 
-  nxtDisplayCenteredBigTextLine(2,"Delaying: %i sec", atoi(delayTimes[selectedDelayTime]));
-  wait10Msec(atoi(delayTimes[selectedDelayTime]) * 100);
+	nxtDisplayCenteredBigTextLine(2,"Delaying: %i sec", atoi(delayTimes[selectedDelayTime]));
+	wait10Msec(atoi(delayTimes[selectedDelayTime]) * 100);
 
-  eraseDisplay();
-  nxtDisplayCenteredBigTextLine(1,"RUNNING!");
-  nxtDisplayTextLine(4,"Autonomous Mode");
-  nxtDisplayTextLine(5,"Choice: %s", autoRoutines[selectedAutoRoutine]);
+	eraseDisplay();
+	nxtDisplayCenteredBigTextLine(1,"RUNNING!");
+	nxtDisplayTextLine(4,"Autonomous Mode");
+	nxtDisplayTextLine(5,"Choice: %s", autoRoutines[selectedAutoRoutine]);
 
-  //START AN AUTO ROUTINE!!!!
-  switch (selectedAutoRoutine + 1) {  //array index starts at 0, normalize to 1 for clarity
-    case 1:
-      R1();
-      break;
-    case 2:
-      R2();
-      break;
-    case 3:
-			R3();
-     	break;
-    case 4:
-      R4();
-      break;
-     case 5:
-      R5();
-      break;
-     case 6:
-      R6();
-     break;
-    default:
-      //no autonomous routine was chosen, run a default one.
-      break;
-    }
+	//START AN AUTO ROUTINE!!!!
+	switch (selectedAutoRoutine + 1) {  //array index starts at 0, normalize to 1 for clarity
+	case 1:
+		R1();
+		break;
+	case 2:
+		R2();
+		break;
+	case 3:
+		R3();
+		break;
+	case 4:
+		R4();
+		break;
+	case 5:
+		R5();
+		break;
+	case 6:
+		R6();
+		break;
+	default:
+		//no autonomous routine was chosen, run a default one.
+		break;
+	}
 }

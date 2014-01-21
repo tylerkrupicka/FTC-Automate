@@ -25,31 +25,31 @@
 //Initialize/////////////////////////////////////////////////
 
 void initializeRobot(){
-	  nMotorEncoder[ML] = 0;
+	nMotorEncoder[ML] = 0;
 }
 
 //Main Task/////////////////////////////////////////////////
 
 task main(){
 
-  getJoystickSettings(joystick); //courtesy setup//
+	getJoystickSettings(joystick); //courtesy setup//
 	initializeRobot();
 
-  while(true){
+	while(true){
 
-	  //Get Readings//////////////////////////////////////////
-    getJoystickSettings(joystick);
-	  int IR = SensorValue[IRSeeker];
-	  int wheelEncoder = nMotorEncoder[ML];
+		//Get Readings//////////////////////////////////////////
+		getJoystickSettings(joystick);
+		int IR = SensorValue[IRSeeker];
+		int wheelEncoder = nMotorEncoder[ML];
 
-	  //Display Diagnostics///////////////////////////////////
-	  nxtDisplayBigTextLine(2, "%i", wheelEncoder);
+		//Display Diagnostics///////////////////////////////////
+		nxtDisplayBigTextLine(2, "%i", wheelEncoder);
 
-	  //Drive/////////////////////////////////////////////////
+		//Drive/////////////////////////////////////////////////
 
-	  driveArcade(joystick.joy1_x1,joystick.joy1_y1,joystick.joy1_x2,joystick.joy1_y2);
+		driveArcade(joystick.joy1_x1,joystick.joy1_y1,joystick.joy1_x2,joystick.joy1_y2);
 
-	  //Button Movements/////////////////////////////////////
+		//Button Movements/////////////////////////////////////
 
-  }
+	}
 }
