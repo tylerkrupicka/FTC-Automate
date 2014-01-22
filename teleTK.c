@@ -25,7 +25,7 @@
 //Initialize/////////////////////////////////////////////////
 
 void initializeRobot(){
-	nMotorEncoder[ML] = 0;
+	nMotorEncoder[ML] = 0; // set encoder value to zero
 }
 
 //Main Task/////////////////////////////////////////////////
@@ -43,13 +43,20 @@ task main(){
 		int wheelEncoder = nMotorEncoder[ML];
 
 		//Display Diagnostics///////////////////////////////////
-		nxtDisplayBigTextLine(2, "%i", wheelEncoder);
+		nxtDisplayBigTextLine(2, "%i", wheelEncoder); // print wheel Encoder value on line 2
 
 		//Drive/////////////////////////////////////////////////
 
-		driveArcade(joystick.joy1_x1,joystick.joy1_y1,joystick.joy1_x2,joystick.joy1_y2);
+		driveArcade(joystick.joy1_x1,joystick.joy1_y1,joystick.joy1_x2,joystick.joy1_y2); //drive using the drive function in drive.h
 
 		//Button Movements/////////////////////////////////////
 
+		if(joy1Btn(1) == 1){ //if button one is pressed (1) jog the front motors. 0 is off for buttons
+			motor[FL] = 100;
+			motor[FR] = 100;
+		}
+		if(joy1Btn(2) == 1){ //if button one is pressed (1) set the servo to home position
+			servo[servo1] = 0;
+		}
 	}
 }
