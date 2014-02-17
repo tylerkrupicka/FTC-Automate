@@ -6,3 +6,10 @@ code. Acknowledgement is appreciated.
 
 The code is set up for a 6 wheeled robot with an encoder on the middle left wheel.
 It must be lightly edited to work on other platforms.
+
+Additionally, the 4586 folder contains the code used to run the Tiger Team's final 
+robot that competed in St. Louis in 2013 (senior year of high school). It used automated
+joints and presets to do most arm movement automatically. You can see how it worked here:
+http://www.youtube.com/watch?v=vNvRvfMIHuY&feature=youtu.be
+
+Thanks!
