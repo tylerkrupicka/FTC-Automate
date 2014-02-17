@@ -19,6 +19,7 @@
 
 int delay;
 int IR;
+//Names used for routines in menu. Should be short.
 string autoRoutines[] =  { "R1", "R2", "R3", "R4", "R5", "R6"};
 int   selectedAutoRoutine = -1;
 string delayTimes[] =  { "0","5","10","15","20"};
