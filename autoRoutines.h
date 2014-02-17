@@ -1,6 +1,9 @@
 //each of these routines is accesed by the main autonomous program
 //they should be renamed based on what they do.
 
+//The watchdog setup is to stop the robot if the automated drive does not complete,
+//which stops the motors in the event of a collision and saves motors.
+
 //sample autonomous to drive straight ten inches
 void R1() {
 	delay = 300; //set a time of three seconds for watchdog
