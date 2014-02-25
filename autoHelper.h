@@ -36,8 +36,9 @@ void AutoDrive(float inches, float speed){
 
 	float clicks = (CLICKS_PER_REVOLUTION/WHEEL_CIRCUMFERENCE)*inches;
 	float goal = nMotorEncoder[ML] + clicks;
+	bool complete = false;
 
-	if(nMotorEncoder[ML] > goal){
+	if(nMotorEncoder[ML] > goal && complete == false){
 		while(nMotorEncoder[ML] > goal){ // run motors until goal is reached
 			motor[FL] = -speed;
 			motor[ML] = -speed;
@@ -46,8 +47,9 @@ void AutoDrive(float inches, float speed){
 			motor[MR] = -speed;
 			motor[BR] = -speed;
 		}
+		complete = true;
 	}
-	if(nMotorEncoder[ML] < goal){
+	if(nMotorEncoder[ML] < goal && complete == false){
 		while(nMotorEncoder[ML] < goal){
 			motor[FL] = speed;
 			motor[ML] = speed;
@@ -56,6 +58,7 @@ void AutoDrive(float inches, float speed){
 			motor[MR] = speed;
 			motor[BR] = speed;
 		}
+		complete = true;
 	}
 	Stop(); // uses the stop function to set motors to 0
 }
